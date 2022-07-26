@@ -1,0 +1,72 @@
+﻿@using iot_Class.ViewModel;
+@model RoleUpdateViewModel
+@{
+    ViewData["Title"] = "UpdateRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Müdür</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Okul</a></li>
+                                <li class="breadcrumb-item active">Düzenleme</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title"> Görev Düzenleme Formu</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h4 class="header-title">Görev Düzenleme</h4>
+
+                                <div class="p-4">
+                                    <form asp-controller="AdminRole" asp-action="UpdateRole" method="post" data-parsley-validate novalidate>
+
+                                        <div class="form-group">
+                                            <label asp-for="@Model.Id">Görev Id<span class="text-danger" asp-validation-for="@Model.Id">*</span></label>
+                                            <input asp-for="@Model.Id" type="text" name="Id" parsley-trigger="change" required placeholder="Görev Id" class="form-control" id="Id">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.name">Görev Adı<span class="text-danger" asp-validation-for="@Model.name">*</span></label>
+                                            <input asp-for="@Model.name" type="text" name="name" parsley-trigger="change" required placeholder="Görev Adı" class="form-control" id="name">
+                                        </div>
+
+
+                                        <div class="form-group text-right mb-0">
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                Güncelle
+                                            </button>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

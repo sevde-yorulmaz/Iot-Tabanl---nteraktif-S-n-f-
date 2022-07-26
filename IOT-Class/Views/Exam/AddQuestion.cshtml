@@ -1,0 +1,88 @@
+﻿@using iot_Class.ViewModel;
+@model AddQuestionViewModel
+@{
+    ViewData["Title"] = "AddQuestion";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Öğretmen</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Sınav</a></li>
+                                <li class="breadcrumb-item active">Ekle</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Yeni Sınav oluşturma Formu</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h4 class="header-title">Yeni Soru Ekleme</h4>
+
+                                <div class="p-4">
+                                    <form asp-controller="Exam" asp-action="AddQuestion" method="post" enctype="multipart/form-data">
+                                        @*<input asp-for="@Model." type="hidden" value="@Model." />*@
+                                        <div class="form-group">
+                                            <select asp-for="questionss.QuestionType.Id">
+                                                @foreach (var item in Model.QuestionType)
+                                                {
+                                                    <option value="@item.Id">@item.TypeName</option>
+
+                                                }
+                                            </select>
+                                        </div>
+                                        <input type="hidden" asp-for="@Model.exam.Id" />
+                                        <div class="form-group">
+                                            <label asp-for="@Model.QuestionText">Soruyu Yazın<span class="text-danger" asp-validation-for="@Model.QuestionText">*</span></label>
+                                            <textarea asp-for="@Model.QuestionText" type="text" name="QuestionText" parsley-trigger="change" required="" placeholder="Adı Soyad" class="form-control" id="QuestionText"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.Score">Puan<span class="text-danger" asp-validation-for="@Model.Score">*</span></label>
+                                            <input asp-for="@Model.Score" type="number" name="Score" parsley-trigger="change" required="" placeholder="Soru için puan giriniz" class="form-control" id="Score">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.Image">Soruyu Resim Olarak Yüle<span class="text-danger" asp-validation-for="@Model.Image">*</span></label>
+                                            <input asp-for="@Model.Image" type="file" name="Image" parsley-trigger="change" required="" class="form-control" id="Image">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Answer">Cevap<span class="text-danger" asp-validation-for="Answer">*</span></label>
+                                            <input asp-for="Answer" type="text" name="Answer" parsley-trigger="change" required="" placeholder="Cevap" class="form-control" id="Answer">
+                                        </div>
+                                        <div class="form-group account-btn text-center mt-2">
+                                            <div class="col-12">
+                                                <button class="btn btn-outline-orange btn-rounded waves-light waves-effect width-md" type="submit">Soru Ekle</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

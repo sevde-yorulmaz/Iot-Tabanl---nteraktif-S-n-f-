@@ -1,0 +1,65 @@
+﻿@using IOT_Class.Models;
+@model List<Class>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="header-title">Sınıf Listesi</h5>
+                            <p class="sub-header">Sınıfları buradan görebilirsiniz.</p>
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0" id="btn-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Sınıf Adı</th>
+                                            <th>Ders Başlama Tarihi</th>
+                                            <th>Ders Bitiş Tarihi</th>
+                                            <th>Sınıf Mevcudu</th>
+                                            <th>Durum</th>                                           
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var classes in Model)
+                                        {
+                                            <tr>
+                                                <td>@classes.Id</td>
+                                                <td>@classes.ClassName</td>
+                                                <td>@classes.LessonStartDate</td>
+                                                <td>@classes.LessonFinishDate</td>
+                                                <td>@classes.Total</td>
+                                                <td>@classes.State</td>
+                                               
+                                                <td><a href="/Classes/DeleteClass/@classes.Id" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fas fa-times"></i> </a></td>
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                                <a asp-controller="Classes" asp-action="AddClass" class="btn btn-outline-orange btn-rounded waves-light waves-effect width-md">Yeni Sınıf Ekle</a>
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+        </div>
+    </div>
+</div>
+
+

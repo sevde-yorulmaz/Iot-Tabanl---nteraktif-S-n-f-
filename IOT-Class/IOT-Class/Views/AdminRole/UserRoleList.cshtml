@@ -1,0 +1,75 @@
+﻿@using IOT_Class.Models;
+@model List<AppUser>
+@{
+    ViewData["Title"] = "UserRoleList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kullanıcı Rol Listesi</h1>
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="header-title">Kullanıcı Rol Listesi</h5>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0" id="btn-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Kullanıcı</th>
+                                            <th>Rol Ata</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Id</td>
+                                                <td>@item.UserName</td>
+                                               
+                                                <td><a href="/AdminRole/AssignRole/@item.Id/" class="btn btn-outline-pink "> Rol Ata </a></td>
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                                <a asp-controller="AdminRole" asp-action="Index" class="btn btn-outline-orange btn-rounded waves-light waves-effect width-md">Rol Listesine Geri Dön</a>
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- end container-fluid -->
+
+    </div>
+    <!-- end content -->
+    <!-- Vendor js -->
+    <script src="~/assets/js/vendor.min.js"></script>
+
+    <!-- Table Editable plugin-->
+    <script src="~/assets/libs/jquery-tabledit/jquery.tabledit.min.js"></script>
+
+    <!-- Table editable init-->
+    <script src="~/assets/js/pages/tabledit.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/app.min.js"></script>
+
+
+
+

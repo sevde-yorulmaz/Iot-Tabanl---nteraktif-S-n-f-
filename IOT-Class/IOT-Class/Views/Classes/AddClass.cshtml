@@ -1,0 +1,130 @@
+﻿@using IOT_Class.ViewModel;
+@model ClassViewModel
+@{
+    ViewData["Title"] = "AddClass";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    <link href="~/assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/libs/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet">
+    <link href="~/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/libs/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="~/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+    <link href="~/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet" />
+
+</head>
+
+<body>
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Zircos</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                                    <li class="breadcrumb-item active">Form Validation</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Yeni Sınıf Ekleme Formu</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-box">
+
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <h4 class="header-title">Yeni Sınıf Ekleme</h4>
+
+                                    <div class="p-4">
+                                        <form asp-controller="Classes" asp-action="AddClass" method="post" data-parsley-validate novalidate>
+                                            <div class="form-group">
+                                                <label asp-for="@Model.className">Sınıf Adı<span class="text-danger" asp-validation-for="@Model.className">*</span></label>
+                                                <input asp-for="@Model.className" type="text" name="className" parsley-trigger="change" required placeholder="Sınıf Adı" class="form-control" id="className">
+                                            </div>
+                                            <div class="demo-box">
+
+                                                <div class="form-group">
+                                                    <label>Date Range</label>
+                                                    <div>
+                                                        <div class="input-daterange input-group" id="date-range">
+                                                            <input type="text" class="form-control" name="startDate" asp-for="@Model.startDate" />
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text bg-primary text-white b-0">to</span>
+                                                            </div>
+
+                                                            <input type="text" class="form-control" name="finishDate" asp-for="@Model.finishDate" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label asp-for="@Model.total">Sınıf Mevcudu<span class="text-danger" asp-validation-for="@Model.total">*</span></label>
+                                                <input asp-for="@Model.total" type="text" name="total" parsley-trigger="change" required placeholder="Sınıf Mevcudu" class="form-control" id="total">
+                                            </div>
+
+                                            <div class="form-group text-right mb-0">
+                                                <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                    Yeni Sınıf Ekle
+                                                </button>
+
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Vendor js -->
+    <script src="~/assets/js/vendor.min.js"></script>
+
+    <script src="~/assets/libs/moment/moment.min.js"></script>
+    <script src="~/assets/libs/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
+    <script src="~/assets/libs/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="~/assets/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
+    <script src="~/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="~/assets/libs/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Init js-->
+    <script src="~/assets/js/pages/form-pickers.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/app.min.js"></script>
+</body>
+</html>
+
+

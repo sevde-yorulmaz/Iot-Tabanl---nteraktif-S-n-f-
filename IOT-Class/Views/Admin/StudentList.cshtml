@@ -1,0 +1,72 @@
+﻿@using iot_Class.ViewModel;
+@model List<AppUser>
+@{
+    ViewData["Title"] = "StudentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="header-title">Öğrenciler Listesi</h5>
+
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0" id="btn-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Ad Soyad</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Id</td>
+                                                <td>@item.NameSurname</td>
+                                                <td><a href="/AdminRole/UpdateRole/@item.Id" class="btn btn-outline-purple btn-rounded waves-light waves-effect width-md">Düzenle</a></td>
+                                                <td><a href="/AdminRole/DeleteRole/@item.Id" class="btn btn-outline-danger btn-rounded waves-light waves-effect width-md">Sil</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <a asp-controller="Admin" asp-action="AddUser" class="btn btn-outline-orange btn-rounded waves-light waves-effect width-md">Yeni Kişi Ekle</a>
+                                <a asp-controller="AdminRole" asp-action="UserRoleList" class="btn btn-outline-info btn-rounded waves-light waves-effect width-md">Kullanıcı Rol Listesi</a>
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- end container-fluid -->
+
+    </div>
+    <!-- end content -->
+    <!-- Vendor js -->
+    <script src="~/assets/js/vendor.min.js"></script>
+
+    <!-- Table Editable plugin-->
+    <script src="~/assets/libs/jquery-tabledit/jquery.tabledit.min.js"></script>
+
+    <!-- Table editable init-->
+    <script src="~/assets/js/pages/tabledit.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/app.min.js"></script>
+

@@ -1,0 +1,65 @@
+﻿@using IOT_Class.ViewModel;
+@model RoleViewModel
+@{
+    ViewData["Title"] = "AddRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Zircos</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                                <li class="breadcrumb-item active">Form Validation</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Form Role</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h4 class="header-title">Rol Ekleme</h4>
+
+                                <div class="p-4">
+                                    <form method="post" asp-controller="AdminRole" asp-action="AddRole" data-parsley-validate novalidate>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.name">Rol Adı<span class="text-danger" asp-validation-for="@Model.name">*</span></label>
+                                            <input asp-for="@Model.name" type="text" name="name" parsley-trigger="change" required placeholder="Rol Adı" class="form-control" id="name">
+                                        </div>
+                                       
+
+                                        <div class="form-group text-right mb-0">
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                              Rol Ekle
+                                            </button>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

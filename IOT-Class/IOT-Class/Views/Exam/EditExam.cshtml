@@ -1,0 +1,74 @@
+﻿@using IOT_Class.Models;
+@model Exam
+@{
+    ViewData["Title"] = "EditExam";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Müdür</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Okul</a></li>
+                                <li class="breadcrumb-item active">Ekle</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Yeni Okul Ekle Formu</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h4 class="header-title">Yeni Exam Ekleme</h4>
+
+                                <div class="p-4">
+                                    <form asp-controller="Exam" asp-action="EditExam" method="post" data-parsley-validate novalidate>
+                                        <div class="form-group text-right mb-0">
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                Değişikleri Kaydet
+                                            </button>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.ExamName">Sınav Adı<span class="text-danger" asp-validation-for="@Model.ExamName">*</span></label>
+                                            <input asp-for="@Model.ExamName" type="text" name="examname" parsley-trigger="change" required placeholder="Sınav Adı" class="form-control" id="examname">
+                                        </div>
+
+                                        <div class="form-check mb-2 form-check-success">
+                                            <input class="form-check-input" type="checkbox" value="true" id="State" name="State" checked="">
+                                            <label class="form-check-label" asp-for="@Model.State">Status</label>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

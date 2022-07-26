@@ -1,0 +1,65 @@
+﻿@using IOT_Class.Models;
+@model List<School>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="header-title">Okullar Listesi</h5>
+                            <p class="sub-header">Okulları buradan görebilirsiniz.</p>
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0" id="btn-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Okul Adı</th>
+                                            <th>Okul Telefonu</th>
+                                            <th>Okul Mail Adresi</th>
+                                            <th>Okul Adresi</th>
+                                            <th>Durum</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var school in Model)
+                                        {
+                                            <tr>
+                                                <td>@school.Id</td>
+                                                <td>@school.Name</td>
+                                                <td>@school.Phone</td>
+                                                <td>@school.Email</td>
+                                                <td>@school.Addresss</td>
+                                                <td>@school.State</td>
+                                                <td><a href="/School/EditSchool/@school.Id" class="btn btn-icon waves-effect waves-light btn-warning"> <i class="fas fa-wrench"></i> </a></td>
+                                                <td><a href="/School/DeleteSchool/@school.Id" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fas fa-times"></i> </a></td>
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                                <a asp-controller="School" asp-action="AddSchool" class="btn btn-outline-orange btn-rounded waves-light waves-effect width-md">Yeni Okul Ekle</a>
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+        </div>
+    </div>
+</div>
+

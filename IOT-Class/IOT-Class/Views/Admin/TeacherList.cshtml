@@ -1,0 +1,94 @@
+﻿@using IOT_Class.ViewModel;
+@model GetTeacherAndStudentViewModel
+@{
+    ViewData["Title"] = "TeacherList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <br />
+                            <br />
+                            <br />
+
+                            <h5 class="header-title">Öğretmen Listesi</h5>
+
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0" id="btn-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Ad-Soyad</th>
+                                            <th>Kullanıcı Adı</th>
+                                            <th>Email</th>
+                                            <th> Sınıf</th>
+                                            <th>Cihaz</th>
+                                            <th>Telefon</th>
+                                            <th>Okul</th>
+                                            <th>Kayıt Tarih</th>
+                                            <th>Durum</th>                                            
+                                            <th>Düzenle</th>                                            
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model.users)
+                                        {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.NameSurname</td>
+                                            <td>@item.UserName</td>
+                                            <td>@item.Email</td>
+                                            <td>@Model.classes.Where(x => x.Id == item.Class.Id).FirstOrDefault().ClassName</td>
+                                            <td>@Model.devices.Where(x => x.Id == item.Device.Id).FirstOrDefault().DeviceName</td>
+                                            <td>@item.PhoneNumber</td>
+                                            <td>@Model.schools.Where(x => x.Id == item.School.Id).FirstOrDefault().Name</td>
+                                            <td>@item.RegistrationDate</td>
+                                            <td>@item.State</td>
+                                            <td><a href="/Admin/EditTeacher/@item.Id" class="btn btn-outline-warning btn-rounded waves-light waves-effect width-sm">Düzenle</a></td>
+                                            <td><a href="/Admin/DeleteTeacher/@item.Id" class="btn btn-outline-danger btn-rounded waves-light waves-effect width-sm">Sil</a></td>
+
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+
+
+
+
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- end container-fluid -->
+
+    </div>
+    <!-- end content -->
+    <!-- Vendor js -->
+    <script src="~/assets/js/vendor.min.js"></script>
+
+    <!-- Table Editable plugin-->
+    <script src="~/assets/libs/jquery-tabledit/jquery.tabledit.min.js"></script>
+
+    <!-- Table editable init-->
+    <script src="~/assets/js/pages/tabledit.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/app.min.js"></script>

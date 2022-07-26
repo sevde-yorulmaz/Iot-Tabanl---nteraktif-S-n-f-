@@ -1,0 +1,69 @@
+﻿@using iot_Class.ViewModel;
+@model AddQuestionTypeViewModel
+@{
+    ViewData["Title"] = "AddQType";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Müdür</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Okul</a></li>
+                                <li class="breadcrumb-item active">Ekle</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Soru Tipi Ekleme</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h4 class="header-title">Soru Türü Ekleme</h4>
+
+                                <div class="p-4">
+                                    <form asp-controller="Exam" asp-action="AddQType" method="post" data-parsley-validate novalidate>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.qType">Tür Adı<span class="text-danger" asp-validation-for="@Model.qType">*</span></label>
+                                            <input asp-for="@Model.qType" type="text" name="qType" parsley-trigger="change" required placeholder="Tür Adı" class="form-control" id="qType">
+                                        </div>
+
+
+                                        <div class="form-group text-right mb-0">
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                Ekle
+                                            </button>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

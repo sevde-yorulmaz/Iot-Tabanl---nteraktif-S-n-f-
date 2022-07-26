@@ -1,0 +1,94 @@
+﻿@using IOT_Class.Models;
+@model List<Question>
+
+@{
+    ViewData["Title"] = "QuestionList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Soru</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="header-title">Sorular Listesi</h5>
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0" id="btn-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Soru</th>
+                                            <th>Soru Resim</th>
+                                            <th>Cevap Anahtarı</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Id</td>
+                                                <th>@item.QuestionText</th>
+                                                <td>@item.Image</td>
+                                                <td>@item.Answer</td>
+                                                <td><a href="/Exam/EditQuestion/@item.Id" class="btn btn-icon waves-effect waves-light btn-warning"> <i class="fas fa-wrench"></i> </a></td>
+                                                <td><a href="/Exam/DeleteQuestion/@item.Id" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fas fa-times"></i> </a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- end container-fluid -->
+
+    </div>
+    <!-- end content -->
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    2018 - 2020 &copy; Zircos theme by <a href="#">Coderthemes</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end Footer -->
+
+</div>
+
+
+

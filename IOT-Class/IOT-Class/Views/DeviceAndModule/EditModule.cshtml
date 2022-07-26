@@ -1,0 +1,88 @@
+﻿@using IOT_Class.Models;
+@model Module
+@{
+    ViewData["Title"] = "EditModule";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a asp-controller="DeviceAndModule" asp-action="GetModule">Modül</a></li>
+                                <li class="breadcrumb-item"><a asp-controller="DeviceAndModule" asp-action="EditModule">Güncelleme</a></li>
+                                <li class="breadcrumb-item active">Form </li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Modül Güncelleme Formu</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h4 class="header-title">Modül Güncelleme</h4>
+
+                                <div class="p-4">
+                                    <form asp-controller="DeviceAndModule" asp-action="EditModule" method="post" data-parsley-validate novalidate>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.ModuleName">Modül Adı<span class="text-danger" asp-validation-for="@Model.ModuleName">*</span></label>
+                                            <input asp-for="@Model.ModuleName" type="text" name="ModuleName" parsley-trigger="change" required placeholder="Modül Adı" class="form-control" id="ModuleName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.DigitalMinValue">Dijital Minimum Değeri<span class="text-danger" asp-validation-for="@Model.DigitalMinValue">*</span></label>
+                                            <input asp-for="@Model.DigitalMinValue" type="number" name="DigitalMinValue" parsley-trigger="change" required placeholder="Dijital Minimum Değeri" class="form-control" id="DigitalMinValue">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.DigitalMaxValue">Dijital Maksimum Değeri<span class="text-danger" asp-validation-for="@Model.DigitalMaxValue">*</span></label>
+                                            <input asp-for="@Model.DigitalMaxValue" type="number" name="DigitalMaxValue" parsley-trigger="change" required placeholder="Dijital Maksimum Değeri" class="form-control" id="DigitalMaxValue">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.AnalogMinValue">Analog Minimum Değeri<span class="text-danger" asp-validation-for="@Model.AnalogMinValue">*</span></label>
+                                            <input asp-for="@Model.AnalogMinValue" type="number" name="AnalogMinValue" parsley-trigger="change" required placeholder="Analog Minimum Değeri" class="form-control" id="AnalogMinValue">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.AnalogMaxValue">Analog Maksimum Değeri<span class="text-danger" asp-validation-for="@Model.AnalogMaxValue">*</span></label>
+                                            <input asp-for="@Model.AnalogMaxValue" type="number" name="AnalogMaxValue" parsley-trigger="change" required placeholder="Analog Maksimum Değeri" class="form-control" id="AnalogMaxValue">
+                                        </div>
+                                        <div class="form-check mb-2 form-check-success">
+                                            <input class="form-check-input" type="checkbox" value="true" id="State" name="State" checked="">
+                                            <label class="form-check-label" asp-for="@Model.State">Durumu</label>
+                                        </div>
+
+                                        <div class="form-group text-right mb-0">
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                Güncelle
+                                            </button>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

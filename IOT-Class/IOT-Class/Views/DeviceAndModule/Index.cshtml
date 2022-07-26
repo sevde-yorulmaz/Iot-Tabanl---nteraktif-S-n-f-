@@ -1,0 +1,82 @@
+﻿@using IOT_Class.ViewModel;
+@model DeviceWithModuleGetViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a asp-controller="DeviceAndModule" asp-action="Index">Cihazlar</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <br />
+                            <br />
+                            <br />
+
+                            <h5 class="header-title">Cihazlar Listesi</h5>
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0" id="btn-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Cihaz Adı</th>
+                                            <th>Cihaz Açıklaması</th>
+                                            <th>Cihazdaki Modül</th>
+                                            <th>Düzenle</th>
+                                            <th>Modül Ekle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model.devices)
+                                        {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.DeviceName</td>
+                                            <td>@item.Description</td>
+                                            <td>@Model.modules.Where(x=>x.Id==item.Module.Id).FirstOrDefault().ModuleName</td>
+                                            <td><a href="/DeviceAndModule/EditDevice/@item.Id" class="btn btn-icon waves-effect waves-light btn-warning"> <i class="fas fa-wrench"></i> </a></td>
+                                            <td><a href="/DeviceAndModule/AssignModuleForDevice/@item.Id" class="btn btn-success waves-effect waves-light btn-bordered-primary"> Modül Ekle </a></td>
+                                            <td><a href="/DeviceAndModule/DeleteDevice/@item.Id" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fas fa-times"></i> </a></td>
+                                        </tr>}
+                                    </tbody>
+                                </table>
+                                <a asp-controller="DeviceAndModule" asp-action="AddDevice" class="btn btn-icon waves-effect waves-light btn-success"> Yeni Cihaz Ekle </a>
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- end container-fluid -->
+
+    </div>
+    <!-- end content -->
+</div>
+

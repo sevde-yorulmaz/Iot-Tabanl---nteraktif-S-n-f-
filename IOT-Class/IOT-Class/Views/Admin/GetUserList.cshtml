@@ -1,0 +1,94 @@
+﻿@using IOT_Class.ViewModel;
+@model GetUserListViewModel
+@{
+    ViewData["Title"] = "GetUserList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="header-title">Kullanıcılar Listesi</h5>
+
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0" id="btn-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Ad-Soyad</th>
+                                            <th>Kullanıcı Adı</th>
+                                            <th>Email</th>
+                                            <th> Sınıf</th>
+                                            <th>Cihaz</th>
+                                            <th>Telefon</th>
+                                            <th>Okul</th>
+                                            <th>Kayıt Tarih</th>
+                                            <th>Durum</th>
+                                            <th>Düzenle</th>
+                                            <th>Okul-Sınıf Ata</th>
+                                            <th>Cihaz Ata</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model.user)
+                                        {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.NameSurname</td>
+                                            <td>@item.UserName</td>
+                                            <td>@item.Email</td>
+                                            <td>@Model.classe.Where(x => x.Id == item.Class.Id).FirstOrDefault().ClassName</td>
+                                            <td>@Model.device.Where(x=>x.Id==item.Device.Id).FirstOrDefault().DeviceName</td>
+                                            <td>@item.PhoneNumber</td>
+                                            <td>@Model.school.Where(x => x.Id == item.School.Id).FirstOrDefault().Name</td>
+                                            <td>@item.RegistrationDate</td>
+                                            <td>@item.State</td>
+                                            <td><a href="/Admin/UpdateUser/@item.Id" class="btn btn-outline-purple btn-rounded waves-light waves-effect width-sm">Düzenle</a></td>
+                                            <td> <a href="/Admin/AssignSchoolForUser/@item.Id" class="btn btn-outline-orange btn-rounded waves-light waves-effect width-md">Okul-Sınıf Ata</a></td>
+                                            <td> <a href="/Admin/AssignDeviceForUser/@item.Id" class="btn btn-outline-primary btn-rounded waves-light waves-effect width-md">Cihaz Ata</a></td>
+                                            <td><a href="/Admin/DeleteUser/@item.Id" class="btn btn-outline-danger btn-rounded waves-light waves-effect width-sm">Sil</a></td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                               
+                                <a asp-controller="Admin" asp-action="AddUser" class="btn btn-outline-pink btn-rounded waves-light waves-effect width-md">Yeni Kullanıcı Ekle</a>
+
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- end container-fluid -->
+
+    </div>
+    <!-- end content -->
+    <!-- Vendor js -->
+    <script src="~/assets/js/vendor.min.js"></script>
+
+    <!-- Table Editable plugin-->
+    <script src="~/assets/libs/jquery-tabledit/jquery.tabledit.min.js"></script>
+
+    <!-- Table editable init-->
+    <script src="~/assets/js/pages/tabledit.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/app.min.js"></script>
+
+

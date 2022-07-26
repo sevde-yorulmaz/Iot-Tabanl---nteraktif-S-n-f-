@@ -1,0 +1,85 @@
+﻿@using IOT_Class.ViewModel;
+@model UpdateUserViewModel
+@{
+    ViewData["Title"] = "UpdateUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="GetUserList">Kullanıcı</a></li>
+                                <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="UpdateUser">Bilgileri</a></li>
+                                <li class="breadcrumb-item active"><a asp-controller="Admin" asp-action="UpdateUser"></a>Güncelle</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Kullanıcı Güncelleme Formu</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h4 class="header-title">Kullanıcı Bilgileri Güncelleme</h4>
+
+                                <div class="p-4">
+                                    <form asp-controller="Admin" asp-action="UpdateUser" method="post" data-parsley-validate novalidate>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.nameSurname">Adı-Soyadı<span class="text-danger" asp-validation-for="@Model.nameSurname">*</span></label>
+                                            <input asp-for="@Model.nameSurname" type="text" name="nameSurname" parsley-trigger="change" required placeholder="Ad Soyad" class="form-control" id="nameSurname">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.mail">Mail Adresi<span class="text-danger" asp-validation-for="@Model.mail">*</span></label>
+                                            <input asp-for="@Model.mail" type="email" name="mail" parsley-trigger="change" required placeholder="Mail Adresi" class="form-control" id="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.username">Kullanıcı Adı<span class="text-danger" asp-validation-for="@Model.username">*</span></label>
+                                            <input  type="hidden" asp-for="@Model.Id"/>
+                                            <input asp-for="@Model.username" type="text" id="username" name="username" placeholder="Kullanıcı Adı" rows="3" required class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.phone">Telefon Numarası<span class="text-danger" asp-validation-for="@Model.phone">*</span></label>
+                                            <input asp-for="@Model.phone" type="text" name="phone" parsley-trigger="change" required placeholder="Telefon Numarası" class="form-control" id="phone">
+                                        </div>
+                                        <div class="form-check mb-2 form-check-success">
+                                            <input class="form-check-input" type="checkbox" value="true" id="state" name="state" checked="">
+                                            <label class="form-check-label" asp-for="@Model.state">Durum</label>
+                                        </div>
+
+
+                                        <div class="form-group text-right mb-0">
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                Güncelle
+                                            </button>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

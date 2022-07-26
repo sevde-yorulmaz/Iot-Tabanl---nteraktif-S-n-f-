@@ -1,0 +1,87 @@
+﻿@using IOT_Class.ViewModel;
+@model InformationUser
+@{
+    ViewData["Title"] = "UserProfileEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Kullanıcı</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">İşlemi</a></li>
+                                <li class="breadcrumb-item active">Güncelle</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Sisteme Giren Kişinin Bilgileri Güncelleme Formu</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h4 class="header-title">Sisteme Giren Kişinin Bilgileri Güncelleme </h4>
+
+                                <div class="p-4">
+                                    <form asp-controller="Home" asp-action="UserProfileEdit" method="post" data-parsley-validate novalidate>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.user.UserName">Kullanıcı Adı<span class="text-danger" asp-validation-for="@Model.user.UserName">*</span></label>
+                                            <input asp-for="@Model.user.UserName" type="text" name="UserName" parsley-trigger="change" required placeholder="" class="form-control" id="UserName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.user.Email">Mail Adresi<span class="text-danger" asp-validation-for="@Model.user.Email">*</span></label>
+                                            <input asp-for="@Model.user.Email" type="Email" name="Email" parsley-trigger="change" required placeholder="" class="form-control" id="Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.user.PhoneNumber">Telefon Numarası<span class="text-danger" asp-validation-for="@Model.user.PhoneNumber">*</span></label>
+                                            <input asp-for="@Model.user.PhoneNumber" id="PhoneNumber" name="PhoneNumber" required placeholder="" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.user.School.Name">Okulu<span class="text-danger" asp-validation-for="@Model.user.School">*</span></label>
+                                            <input asp-for="@Model.user.School.Name" disabled type="text" name="School" parsley-trigger="change" required placeholder="" class="form-control" id="School">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.user.Class.ClassName">Sınıfı<span class="text-danger" asp-validation-for="@Model.user.Class">*</span></label>
+                                            <input asp-for="@Model.user.Class.ClassName" disabled type="text" name="Class" parsley-trigger="change" required placeholder="" class="form-control" id="Class">
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="@Model.user.Device.DeviceName">Cihazı<span class="text-danger" asp-validation-for="@Model.user.Device.DeviceName">*</span></label>
+                                            <input asp-for="@Model.user.Device.DeviceName" disabled type="text" name="Device" parsley-trigger="change" required placeholder="" class="form-control" id="Device">
+                                        </div>
+                                        <div class="form-group text-right mb-0">
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                                Güncelle
+                                            </button>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

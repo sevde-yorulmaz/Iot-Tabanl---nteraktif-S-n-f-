@@ -1,0 +1,359 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <title>Sidebar Collapsed | Zircos - Responsive Bootstrap 4 Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Responsive bootstrap 4 admin template" name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet" />
+    <link href="~/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet" />
+
+
+
+</head>
+<body>
+    <!-- Topbar Start -->
+    <div class="navbar-custom">
+        <ul class="list-unstyled topnav-menu float-right mb-0">
+
+            <li class="dropdown notification-list">
+                <a class="nav-link dropdown-toggle  waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="mdi mdi-bell noti-icon"></i>
+                    <span class="badge badge-success rounded-circle noti-icon-badge">4</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+
+                    <!-- item-->
+                    <div class="dropdown-item noti-title">
+                        <h5 class="font-16 m-0">
+                            <span class="float-right">
+                                <a href="#" class="text-dark">
+                                    <small>Clear All</small>
+                                </a>
+                            </span>Notification
+                        </h5>
+                    </div>
+
+                    <div class="slimscroll noti-scroll">
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <div class="notify-icon bg-success">
+                                <i class="mdi mdi-settings-outline"></i>
+                            </div>
+                            <p class="notify-details">
+                                New settings
+                                <small class="text-muted">There are new settings available</small>
+                            </p>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <div class="notify-icon bg-info">
+                                <i class="mdi mdi-bell-outline"></i>
+                            </div>
+                            <p class="notify-details">
+                                Updates
+                                <small class="text-muted">There are 2 new updates available</small>
+                            </p>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <div class="notify-icon bg-danger">
+                                <i class="mdi mdi-account-plus"></i>
+                            </div>
+                            <p class="notify-details">
+                                New user
+                                <small class="text-muted">You have 10 unread messages</small>
+                            </p>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <div class="notify-icon bg-info">
+                                <i class="mdi mdi-comment-account-outline"></i>
+                            </div>
+                            <p class="notify-details">
+                                Caleb Flakelar commented on Admin
+                                <small class="text-muted">4 days ago</small>
+                            </p>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <div class="notify-icon bg-secondary">
+                                <i class="mdi mdi-heart"></i>
+                            </div>
+                            <p class="notify-details">
+                                Carlos Crouch liked
+                                <b>Admin</b>
+                                <small class="text-muted">13 days ago</small>
+                            </p>
+                        </a>
+                    </div>
+
+                    <!-- All-->
+                    <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
+                        See all Notification
+                        <i class="fi-arrow-right"></i>
+                    </a>
+
+                </div>
+            </li>
+
+            @await Component.InvokeAsync("AdminMenu")
+
+
+        </ul>
+
+        <!-- LOGO -->
+        <div class="logo-box">
+            <a asp-controller="Admin" asp-action="Index" class="logo text-center">
+                <span class="logo-lg">
+                    <img src="~/assets/images/logo-light.png" alt="" height="18">
+                    <!-- <span class="logo-lg-text-light">Zircos</span> -->
+                </span>
+                <span class="logo-sm">
+                    <!-- <span class="logo-sm-text-dark">Z</span> -->
+                    <img src="~/assets/images/logo-sm.png" alt="" height="24">
+                </span>
+            </a>
+        </div>
+
+        <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+            <li>
+                <button class="button-menu-mobile waves-effect">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+            </li>
+
+            <li class="d-none d-sm-block">
+                <form class="app-search">
+                    <div class="app-search-box">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <div class="input-group-append">
+                                <button class="btn" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+
+        </ul>
+    </div>
+    <!-- end Topbar -->
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left-side-menu">
+
+        <div class="slimscroll-menu">
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+
+                <ul class="metismenu" id="side-menu">
+
+                    <li class="menu-title">Navigation</li>
+
+                    <li>
+                        <a href="~/Admin/Index" class="waves-effect waves-light">
+                            <i class="mdi mdi-view-dashboard"></i>
+                            <span>  Dashboard  </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="DeviceAndModule" asp-action="Index" class="waves-effect waves-light">
+                            <i class="mdi mdi-invert-colors"></i>
+                            <span> Geliştirme Cihazlar Listesi </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="DeviceAndModule" asp-action="GetModule" class="waves-effect waves-light">
+                            <i class="mdi mdi-invert-colors"></i>
+                            <span> Geliştirme Modülleri Listesi </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="AdminRole" asp-action="Index" class="waves-effect waves-light">
+                            <i class="mdi mdi-invert-colors"></i>
+                            <span> Roller Listesi </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="GetUserList" class="waves-effect waves-light">
+                            <i class="mdi mdi-invert-colors"></i>
+                            <span> Kullanıcılar Listesi </span>
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a asp-controller="School" asp-action="Index" class="waves-effect waves-light">
+                            <i class="mdi mdi-layers"></i>
+                            <span>  Kurumlar Listesi </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Classes" asp-action="Index" class="waves-effect waves-light">
+                            <i class="mdi mdi-layers"></i>
+                            <span>  Sınıf Listesi </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="TeacherList" class="waves-effect waves-light">
+                            <i class="mdi mdi-layers"></i>
+                            <span>  Öğretmenler Listesi </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="StudentList" class="waves-effect waves-light">
+                            <i class="mdi mdi-layers"></i>
+                            <span>  Öğrenciler Listesi </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Education" asp-action="EducationList" class="waves-effect waves-light">
+                            <i class="mdi mdi-layers"></i>
+                            <span>  Eğitimler Listesi </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Exam" asp-action="Index" class="waves-effect waves-light">
+                            <i class="mdi mdi-layers"></i>
+                            <span>  Sınavlar Listesi </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Projects" asp-action="Index" class="waves-effect waves-light">
+                            <i class="mdi mdi-layers"></i>
+                            <span> Projeler Listesi </span>
+                        </a>
+                    </li>
+
+
+
+                    <li>
+                        <a href="calendar.html" class="waves-effect waves-light">
+                            <i class="mdi mdi-calendar"></i>
+                            <span> Calendar </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="waves-effect waves-light">
+                            <i class="mdi mdi-email"></i>
+                            <span>  Email </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li><a href="email-inbox.html"> Inbox</a></li>
+                            <li><a href="email-read.html"> Read Mail</a></li>
+                            <li><a href="email-compose.html"> Compose Mail</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-title mt-2">Extra</li>
+                    <li>
+                        <a href="javascript: void(0);" class="waves-effect waves-light">
+                            <i class="mdi mdi-map"></i>
+                            <span> Maps </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li><a href="maps-google.html">Google Maps</a></li>
+                            <li><a href="maps-vector.html">Vector Maps</a></li>
+                            <li><a href="maps-mapael.html">Mapael Maps</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="javascript: void(0);" class="waves-effect waves-light">
+                            <i class="mdi mdi-gift"></i>
+                            <span>  Extras </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li><a href="extras-profile.html">Profile</a></li>
+                            <li><a href="extras-sitemap.html">Sitemap</a></li>
+                            <li><a href="extras-about.html">About Us</a></li>
+                            <li><a href="extras-contact.html">Contact</a></li>
+                            <li><a href="extras-members.html">Members</a></li>
+                            <li><a href="extras-timeline.html">Timeline</a></li>
+                            <li><a href="extras-invoice.html">Invoice</a></li>
+                            <li><a href="extras-search-result.html">Search Result</a></li>
+                            <li><a href="extras-emailtemplate.html">Email Template</a></li>
+                            <li><a href="extras-maintenance.html">Maintenance</a></li>
+                            <li><a href="extras-coming-soon.html">Coming Soon</a></li>
+                            <li><a href="extras-faq.html">FAQ</a></li>
+                            <li><a href="extras-gallery.html">Gallery</a></li>
+                            <li><a href="extras-pricing.html">Pricing</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-title mt-2">More</li>
+
+                </ul>
+
+            </div>
+            <!-- End Sidebar -->
+
+            <div class="clearfix"></div>
+
+            <div class="help-box">
+                <h5 class="text-muted mt-0">For Help ?</h5>
+                <p class="">
+                    <span class="text-info">Email:</span>
+                    <br /> support@support.com
+                </p>
+                <p class="mb-0">
+                    <span class="text-info">Call:</span>
+                    <br /> (+123) 123 456 789
+                </p>
+            </div>
+
+        </div>
+        <!-- Sidebar -left -->
+
+    </div>
+    <!-- Left Sidebar End -->
+    <div>
+        @RenderBody()
+    </div>
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    @DateTime.Now.Year &copy;IOT-Class Tüm Hakları Saklıdır. <a href="#">Sevde Yorulmaz-Hatice Başkonuş</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end Footer -->
+    <!-- Vendor js -->
+    <script src="~/assets/js/vendor.min.js"></script>
+
+    <script src="~/assets/libs/morris-js/morris.min.js"></script>
+    <script src="~/assets/libs/raphael/raphael.min.js"></script>
+
+    <script src="~/assets/js/pages/dashboard.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/app.min.js"></script>
+</body>
+</html>

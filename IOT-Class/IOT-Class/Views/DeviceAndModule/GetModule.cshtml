@@ -1,0 +1,86 @@
+﻿@using IOT_Class.Models;
+@model List<Module>
+@{
+    ViewData["Title"] = "GetModule";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a asp-controller="DeviceAndModule" asp-action="GetModule">Modül</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h5 class="header-title">Modüller Listesi</h5>
+                            <div class="table-responsive">
+                                <table class="table table-centered mb-0" id="btn-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Modül Adı</th>
+                                            <th>Dijital Minimum Değeri</th>
+                                            <th>Dijital Maksimum Değeri</th>
+                                            <th>Analog Maksimum Değeri</th>
+                                            <th>Analog Maksimum Değeri</th>
+                                            <th>Durumu</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Id</td>
+                                                <td>@item.ModuleName</td>
+                                                <td>@item.DigitalMinValue</td>
+                                                <td>@item.DigitalMaxValue</td>
+                                                <td>@item.AnalogMinValue</td>
+                                                <td>@item.AnalogMaxValue</td>
+                                                <td>@item.State</td>
+                                                
+                                                <td><a href="/DeviceAndModule/EditModule/@item.Id" class="btn btn-icon waves-effect waves-light btn-warning"> <i class="fas fa-wrench"></i> </a></td>
+                                                <td><a href="/DeviceAndModule/DeleteModule/@item.Id" class="btn btn-icon waves-effect waves-light btn-danger"> <i class="fas fa-times"></i> </a></td>
+                                            </tr>
+}
+                                    </tbody>
+                                </table>
+                                <a asp-controller="DeviceAndModule" asp-action="AddModule" class="btn btn-icon waves-effect waves-light btn-success"> Yeni Modül Ekle </a>
+                            </div>
+                            <!-- end .table-responsive-->
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+
+        </div>
+        <!-- end container-fluid -->
+
+    </div>
+    <!-- end content -->
+</div>
+
+

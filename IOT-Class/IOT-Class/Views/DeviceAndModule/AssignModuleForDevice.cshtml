@@ -1,0 +1,77 @@
+﻿@using IOT_Class.ViewModel;
+@model AssignModuleForDeviceViewModel
+@{
+    ViewData["Title"] = "AssignModuleForDevice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Cihaza Modül Atama İşlemi</h1>
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a asp-controller="DeviceAndModule" asp-action="Index">Cihaza</a></li>
+                                <li class="breadcrumb-item"><a asp-controller="DeviceAndModule" asp-action="GetModule">Modül</a></li>
+                                <li class="breadcrumb-item active"><a asp-controller="DeviceAndModule" asp-action="AssignModuleForDevice"></a>Ata</li>
+                            </ol>
+                        </div>
+                        <h4 class="page-title">Cihaza Modül Atama Formu</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <h4 class="header-title">Cihaza Modül Atama</h4>
+
+                                <div class="p-4">
+                                    <form asp-controller="DeviceAndModule" asp-action="AssignModuleForDevice" method="post" data-parsley-validate novalidate>
+                                        <input asp-for="@Model.device.Id" type="hidden" value="@Model.device.Id" />
+                                        <div class="form-group">
+                                            <select asp-for="device.Module.Id">
+                                                @foreach (var module in Model.modules)
+                                                {
+                                                    <option value="@module.Id">@module.ModuleName</option>
+
+                                                }
+                                            </select>
+                                        </div>
+                                       
+
+                                        <div class="form-group text-right mb-0">
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit">
+                                               Modül Atama
+                                            </button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
